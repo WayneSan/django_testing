@@ -24,7 +24,7 @@ class PollAdmin(admin.ModelAdmin):
 admin.site.register(Poll, PollAdmin)
 
 class ChoiceAdmin(admin.ModelAdmin):
-    list_display = ('poll', 'choice', 'votes')
+    list_display = ('choice', 'poll', 'votes')
     list_filter = ['poll']
     search_fields = ['choice']
 
