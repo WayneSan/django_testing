@@ -4,7 +4,7 @@ from django_testing.polls.models import Poll
 from django_testing.polls.models import Choice
 
 #admin.site.register(Poll)
-admin.site.register(Choice)
+#admin.site.register(Choice)
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
@@ -22,3 +22,10 @@ class PollAdmin(admin.ModelAdmin):
     date_hierarchy = 'pub_date'
 
 admin.site.register(Poll, PollAdmin)
+
+class ChoiceAdmin(admin.ModelAdmin):
+    list_display = ('poll', 'choice', 'votes')
+    list_filter = ['poll']
+    search_fields = ['choice']
+
+admin.site.register(Choice, ChoiceAdmin)
